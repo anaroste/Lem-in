@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/24 17:08:05 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/24 17:19:35 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ typedef struct			s_room
 	int					y;
 	struct s_room		**liaison;
 	struct s_room		*next;
-}
+}						t_room;
 
 typedef struct			s_stock
 {
-	int					ant_nbr;
+	unsigned int		ant_nbr;
+	int					mq_lst_room;
 	t_txt				*begin_txt;
 	t_room				*room;
 }						t_stock;
