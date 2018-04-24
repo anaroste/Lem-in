@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/03/07 11:03:05 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/04/24 16:12:03 by anaroste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft
 FLAGS = -Wall -Wextra -Werror
 
 CONV_NAME	=	ft_atoi.c				\
+				ft_atoui.c				\
 				ft_itoa.c				\
 				ft_itoa_base.c			\
 				ft_lltoa.c              \
