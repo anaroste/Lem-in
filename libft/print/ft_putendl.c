@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 10:27:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/03/21 14:16:01 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/24 16:36:48 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	ft_putendl(char const *s)
 	if (s)
 	{
 		write(1, s, ft_strlen(s));
-		write(1, "\n", ft_strlen(s));
+		write(1, "\n", 1);
 	}
 }
