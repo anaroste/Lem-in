@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/25 14:22:46 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/25 15:01:40 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct			s_room
 	int					id;
 	int					ant;
 	int					special;
-	int					on;
+	int					way;
 	int					x;
 	int					y;
 	struct s_room		**liaison;
@@ -44,5 +44,7 @@ typedef struct			s_stock
 /*
 **			FONCTIONS
 */
+
+t_stock					*ft_lemin_read(char *file);
 
 #endif
