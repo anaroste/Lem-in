@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/24 17:19:35 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/25 11:19:15 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 /*
 **			STRUCTURES
 */
-
-typedef struct			s_txt
-{
-	char				*str;
-	struct s_txt		*next;
-}						t_txt;
 
 typedef struct			s_room
 {
@@ -43,8 +37,6 @@ typedef struct			s_room
 typedef struct			s_stock
 {
 	unsigned int		ant_nbr;
-	int					mq_lst_room;
-	t_txt				*begin_txt;
 	t_room				*room;
 }						t_stock;
 
