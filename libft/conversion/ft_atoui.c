@@ -6,11 +6,11 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 16:04:05 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/24 16:10:27 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/25 15:00:37 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int		ft_atoi(const char *str)
+unsigned int		ft_atoui(const char *str)
 {
 	long int	nb;
 	long int	i;
@@ -25,8 +25,7 @@ unsigned int		ft_atoi(const char *str)
 	while (str[i] > 47 && str[i] < 58)
 	{
 		nb = nb * 10;
-		nb = nb + ((unsigned int)str[i] - '0');
-		i++;
+		nb = nb + ((unsigned int)str[i++] - '0');
 	}
 	return (nb);
 }
