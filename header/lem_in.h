@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/25 15:14:59 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/25 16:40:09 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ typedef struct			s_stock
 */
 
 t_stock					*ft_lemin_read(char *file);
+int						ft_lemin_pipe_read(t_stock *s, int fd, char **str);
 
 #endif

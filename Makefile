@@ -6,7 +6,9 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC_NAME =  main_lemin.c		\
+SRC_NAME =  main_lemin.c			\
+			ft_lemin_read.c			\
+			ft_lemin_read_second.c	\
 
 SRC = $(addprefix lemin_functions/, $(SRC_NAME))
 
