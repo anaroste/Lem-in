@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/25 16:46:33 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 13:17:52 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static int		ft_special_room(t_stock *s, int fd, char **str)
 	ft_strdel(str);
 	if (ft_gnl(fd, str) < 1 || !ft_new_room(s, *str))
 		return (0);
+	if (start == 1)
+		s->room->ant = s->ant_nbr;
 	s->room->special = start;
 	return (1);
 }
