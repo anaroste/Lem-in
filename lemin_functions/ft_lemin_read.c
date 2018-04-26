@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 13:17:52 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 14:04:54 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ static int		ft_lemin_room_read(t_stock *s, int fd)
 	char		*str;
 	int			ret;
 
-	if (!(ret = ft_gnl(fd, &str)))
-		return (1);
-	if (ret == -1)
+	if ((ret = ft_gnl(fd, &str)) == -1)
 		return (0);
+	if (ret == 0)
+		return (1);
 	if (ft_start_pipe(str, s))
 		return (ft_lemin_pipe_read(s, fd, &str));
+	if (!ft_verif_room(&str))
+		return (1);
 	if (str[0] != '#')
 	{
 		if (!ft_new_room(s, str))
@@ -109,6 +111,8 @@ t_stock			*ft_lemin_read(char *file)
 			!(fd = open(file, O_RDONLY)) ||
 			(ft_gnl(fd, &str) < 1))
 		return (NULL);
+	if (!ft_verif_ant_nbr(&str))
+		return (NULL)
 	s->ant_nbr = ft_atoui(str);
 	ft_putendl(str);
 	ft_strdel(&str);

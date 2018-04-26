@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/25 16:46:36 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 14:06:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int				ft_lemin_pipe_read(t_stock *s, int fd, char **str)
 
 	tmp = s->room;
 	tmp2 = s->room;
+	if (!ft_verif_pipe(str))
+		return (1);
 	if (**str != '#')
 	{
 		while (ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) && tmp)
