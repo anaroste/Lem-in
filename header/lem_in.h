@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/25 16:40:09 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 17:05:31 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct			s_room
 typedef struct			s_stock
 {
 	unsigned int		ant_nbr;
+	unsigned int		way;
 	unsigned int		room_quantity;
 	t_room				*room;
 }						t_stock;
@@ -48,5 +49,6 @@ typedef struct			s_stock
 
 t_stock					*ft_lemin_read(char *file);
 int						ft_lemin_pipe_read(t_stock *s, int fd, char **str);
+int						ft_algorithme(t_stock *s);
 
 #endif
