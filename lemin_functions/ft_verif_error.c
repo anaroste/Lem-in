@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:22:57 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 17:30:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 18:56:26 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_verif_error(char **str)
 {
-	ft_printf("%s\n error in the previous line : stop reading\n", *str);
+	ft_printf("%s\nerror in the previous line : stop reading\n", *str);
 	ft_strdel(str);
 	return (0);
 }
@@ -44,14 +44,14 @@ int			ft_verif_pipe(char **str, t_stock *s)
 	j = 0;
 	while (tmp)
 	{
-		if (!ft_strncmp(str[i], tmp->name, j = ft_strlen(tmp->name)))
+		if (!ft_strncmp(&((*str)[i]), tmp->name, j = ft_strlen(tmp->name)))
 			break ;
 		tmp = tmp->next;
 	}
 	if (!tmp)
 		return (ft_verif_error(str));
 	if ((*str)[i + j])
-		return (0);
+		return (ft_verif_error(str));
 	return (1);
 }
 
