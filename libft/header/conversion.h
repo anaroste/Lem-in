@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:54:05 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/24 16:11:26 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/26 17:22:37 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <wchar.h>
 
 int			ft_atoi(const char *str);
+long long	ft_atoll(const char *str);
 int			ft_atoui(const char *str);
 char		*ft_itoa(int n);
 char		*ft_itoa_base(int n, int base);
