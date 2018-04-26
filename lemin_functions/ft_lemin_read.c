@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 18:43:25 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/26 18:50:45 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int		ft_special_room(t_stock *s, int fd, char **str)
 		start = 1;
 	ft_putendl(*str);
 	ft_strdel(str);
-	if (ft_gnl(fd, str) < 1 || !ft_new_room(s, *str))
+	if (ft_gnl(fd, str) < 1 || !ft_new_room(s, *str) || !ft_verif_room(str))
 		return (0);
 	s->room->special = start;
 	return (1);
@@ -82,6 +82,8 @@ static int		ft_lemin_room_read(t_stock *s, int fd)
 		return (0);
 	if (ft_start_pipe(str, s))
 		return (ft_lemin_pipe_read(s, fd, &str));
+	if (!ft_verif_room(&str))
+		return (1);
 	if (str[0] != '#')
 	{
 		if (!ft_new_room(s, str))
@@ -104,7 +106,9 @@ t_stock			*ft_lemin_read(char *file)
 	int			i;
 
 	if (!(s = (t_stock*)malloc(sizeof(t_stock))) ||
-			!(fd = open(file, O_RDONLY)) || (ft_gnl(fd, &str) < 1))
+			!(fd = open(file, O_RDONLY)) ||
+			(ft_gnl(fd, &str) < 1) ||
+		   	!(ft_verif_ant_nbr(&str)))
 		return (NULL);
 	s->ant_nbr = ft_atoui(str);
 	ft_putendl(str);
