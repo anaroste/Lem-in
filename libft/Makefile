@@ -6,13 +6,13 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/04/26 17:22:53 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/04/27 16:04:59 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -fsanitize=address -Wall -Wextra -Werror
 
 CONV_NAME	=	ft_atoi.c				\
 				ft_atoui.c				\

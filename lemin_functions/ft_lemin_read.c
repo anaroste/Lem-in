@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 10:01:56 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 15:53:52 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,18 @@ static int		ft_new_room(t_stock *s, char *str)
 	int			i;
 
 	i = 0;
-	while (str[i] != ' ' && str[i])
+	while (str[i] != ' ')
 		++i;
 	if (!(new_room = (t_room*)malloc(sizeof(t_room))) ||
 			!(new_room->liaison = (t_room**)malloc(sizeof(t_room*))) ||
 			!(new_room->name = (char*)malloc(sizeof(char) * (i + 1))))
 		return (0);
 	ft_strncpy(new_room->name, str, i);
-	new_room->name[i] = '\0';
-	while (str[i] == ' ')
+	new_room->name[i++] = '\0';
+	new_room->x = ft_atoi(&str[i++]);
+	while (ft_isdigit(str[i]))
 		++i;
-	new_room->x = ft_atoi(&str[i]);
-	while (str[i] != ' ' && str[i])
-		++i;
-	new_room->y = ft_atoi(&str[i]);
+	new_room->y = ft_atoi(&str[++i]);
 	new_room->liaison[0] = NULL;
 	new_room->ant = 0;
 	new_room->special = 0;
@@ -77,7 +75,11 @@ static int		ft_lemin_room_read(t_stock *s, int fd)
 	int			ret;
 
 	if (!(ret = ft_gnl(fd, &str)))
+	{
+		ft_putendl(str);
+		ft_strdel(&str);
 		return (1);
+	}
 	if (ret == -1)
 		return (0);
 	if (ft_start_pipe(str, s))
@@ -85,10 +87,8 @@ static int		ft_lemin_room_read(t_stock *s, int fd)
 	if (!ft_verif_room(&str))
 		return (1);
 	if (str[0] != '#')
-	{
 		if (!ft_new_room(s, str))
 			return (0);
-	}
 	if (!ft_strcmp(str, "##start") || !ft_strcmp(str, "##end"))
 		if (!ft_special_room(s, fd, &str))
 			return (0);
