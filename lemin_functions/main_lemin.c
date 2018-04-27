@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:25:10 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 13:18:41 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 09:49:13 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ int			main(int ac, char **av)
 		ft_putstr("Wrong number of arguments\n");
 		return (0);
 	}
-	if (!(s = ft_lemin_read(av[1])) ||
-			!ft_find_a_way(s) ||
-			!ft_move_ant(s))
+	if (!(s = ft_lemin_read(av[1])))
+//			!ft_find_a_way(s) ||
+//			!ft_move_ant(s))
 	{
 		ft_putstr("ERROR\n");
 		return (0);
 	}
+	ft_test_read(s);
 	ft_free_struct(s);
 	return (0);
 }
