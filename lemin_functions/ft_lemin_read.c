@@ -16,15 +16,30 @@
 static int		ft_start_pipe(char *str, t_stock *s)
 {
 	t_room		*tmp;
+	int		i;
+	int		j;
 
 	tmp = s->room;
 	while (tmp)
 	{
-		if (!ft_strncmp(str, tmp->name, ft_strlen(tmp->name)))
-			return (1);
+		if (!ft_strncmp(str, tmp->name, i = ft_strlen(tmp->name)) &&
+				str[i++] == '-')
+			break ;
 		tmp = tmp->next;
 	}
-	return (0);
+	if (!tmp)
+		return (0);
+	tmp = s->room;
+	while (tmp)
+	{
+		if (!ft_strncmp(&str[i], tmp->name, j = ft_strlen(tmp->name)) &&
+				!str[i + j])
+			break ;
+		tmp = tmp->next;
+	}
+	if (!tmp || str[i + j])
+		return (0);
+	return (1);
 }
 
 static int		ft_new_room(t_stock *s, char *str)

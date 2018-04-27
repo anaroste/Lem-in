@@ -46,6 +46,7 @@ int				ft_lemin_pipe_read(t_stock *s, int fd, char **str)
 	t_room		*tmp;
 	t_room		*tmp2;
 	int			i;
+	int			j;
 
 	tmp = s->room;
 	tmp2 = s->room;
@@ -53,13 +54,9 @@ int				ft_lemin_pipe_read(t_stock *s, int fd, char **str)
 		return (1);
 	if (**str != '#')
 	{
-		while (ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) && tmp)
+		while (ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) || (*str)[i++] != '-')
 			tmp = tmp->next;
-		if (!tmp || !((*str)[i]) || !((*str)[i + 1]))
-			return (0);
-		++i;
-		while (ft_strncmp(tmp2->name, &((*str)[i]),
-					ft_strlen(tmp2->name)) && tmp2)
+		while (ft_strncmp(tmp2->name, &((*str)[i]), j = ft_strlen(tmp2->name)) || (*str)[i + j])
 			tmp2 = tmp2->next;
 		if (!ft_add_liaison(tmp, tmp2) || !ft_add_liaison(tmp2, tmp))
 			return (0);

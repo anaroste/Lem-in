@@ -4,7 +4,7 @@ LIBFT = libft
 
 CC = gcc
 
-FLAGS = -g -fsanitize=address -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 SRC_NAME =  main_lemin.c			\
 			ft_lemin_read.c			\

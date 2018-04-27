@@ -12,7 +12,7 @@
 
 NAME = libft
 
-FLAGS = -fsanitize=address -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 CONV_NAME	=	ft_atoi.c				\
 				ft_atoui.c				\

@@ -20,13 +20,12 @@ static int		ft_verif_pipe_second(char **str, t_stock *s, int i)
 	tmp = s->room;
 	while (tmp)
 	{
-		if (!ft_strncmp(&((*str)[i]), tmp->name, j = ft_strlen(tmp->name)))
+		if (!ft_strncmp(&((*str)[i]), tmp->name, j = ft_strlen(tmp->name)) &&
+				!(*str)[i + j])
 			break ;
 		tmp = tmp->next;
 	}
 	if (!tmp)
-		return (ft_verif_error(str));
-	if ((*str)[i + j])
 		return (ft_verif_error(str));
 	return (1);
 }
@@ -42,18 +41,15 @@ int				ft_verif_pipe(char **str, t_stock *s)
 	tmp = s->room;
 	while (tmp)
 	{
-		if (!ft_strncmp(*str, tmp->name, i = ft_strlen(tmp->name)))
+		if (!ft_strncmp(*str, tmp->name, i = ft_strlen(tmp->name)) &&
+				(*str)[i] == '-')
 			break ;
 		tmp = tmp->next;
 	}
-	if (!tmp)
+	if (!tmp || (*str)[i] != '-')
 		return (ft_verif_error(str));
-	if ((*str)[i] != '-')
-		return (0);
 	++i;
-	if (!ft_verif_pipe_second(str, s, i))
-		return (0);
-	return (1);
+	return (ft_verif_pipe_second(str, s, i));
 }
 
 static int		ft_verif_room_second(char **str, int i)

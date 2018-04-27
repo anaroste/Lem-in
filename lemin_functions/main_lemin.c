@@ -36,6 +36,7 @@ int			main(int ac, char **av)
 		ft_putstr("algorithm\n");
 		return (0);
 	}
+	ft_test_read(s);
 	if (!ft_verif_way(s))
 	{
 		ft_putstr("no way\n");
@@ -46,7 +47,6 @@ int			main(int ac, char **av)
 		ft_putstr("ERROR\n");
 		return (0);
 	}
-	ft_test_read(s);
 	ft_free_struct(s);
 	return (0);
 }
