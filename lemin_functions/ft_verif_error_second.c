@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 10:37:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 13:36:52 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/27 14:38:25 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int				ft_verif_pipe(char **str, t_stock *s)
 	if (**str == '#')
 		return (1);
 	i = 0;
-ft_putstr("MDRR\n");
 	tmp = s->room;
 	while (tmp)
 	{

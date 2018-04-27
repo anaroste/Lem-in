@@ -4,7 +4,7 @@ LIBFT = libft
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 SRC_NAME =  main_lemin.c			\
 			ft_lemin_read.c			\
@@ -14,6 +14,7 @@ SRC_NAME =  main_lemin.c			\
 			ft_verif_error_second.c	\
 			ft_test_read.c			\
 			ft_move_ant.c			\
+			ft_algorithme.c			\
 
 SRC = $(addprefix lemin_functions/, $(SRC_NAME))
 
