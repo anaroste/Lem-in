@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 18:50:45 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 10:01:56 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_stock			*ft_lemin_read(char *file)
 	if (!(s = (t_stock*)malloc(sizeof(t_stock))) ||
 			!(fd = open(file, O_RDONLY)) ||
 			(ft_gnl(fd, &str) < 1) ||
-		   	!(ft_verif_ant_nbr(&str)))
+			!(ft_verif_ant_nbr(&str)))
 		return (NULL);
 	s->ant_nbr = ft_atoui(str);
 	ft_putendl(str);
