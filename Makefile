@@ -12,6 +12,7 @@ SRC_NAME =  main_lemin.c			\
 			ft_free_struct.c		\
 			ft_verif_error.c		\
 			ft_verif_error_second.c	\
+			ft_verif_way.c		\
 			ft_test_read.c			\
 			ft_move_ant.c			\
 			ft_algorithme.c			\

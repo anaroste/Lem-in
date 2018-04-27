@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_lemin.c                                       :+:      :+:    :+:   */
+/*   ft_verif_way.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,29 +12,13 @@
 
 #include "../header/lem_in.h"
 
-int			main(int ac, char **av)
+int	ft_verif_way(t_stock *s)
 {
-	t_stock		*s;
+	int	i;
 
-	if (ac != 2)
-	{
-		ft_putstr("Wrong number of arguments\n");
-		return (0);
-	}
-	if (!(s = ft_lemin_read(av[1])))
-		return (0);
-	if (!ft_verif_start_end(s))
-		return (0);
-	if (!ft_verif_way(s))
-		return (0);
-	if (!ft_algorithme(s))
-		return (0);
-	if (!ft_move_ant(s))
-	{
-		ft_putstr("ERROR\n");
-		return (0);
-	}
-	ft_test_read(s);
-	ft_free_struct(s);
+	i = -1;
+	while (s->start->liaison[++i])
+		if (s->start->liaison[i]->way)
+			return (1);
 	return (0);
 }
