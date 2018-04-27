@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:22:57 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 13:09:35 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 13:43:16 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static int	ft_verif_end(t_stock *s)
 	while (tmp)
 	{
 		if (tmp->special == 2)
+		{
+			s->end = tmp;
 			++cpt;
+		}
 		tmp = tmp->next;
 	}
 	if (cpt != 1)
@@ -61,7 +64,10 @@ int			ft_verif_start_end(t_stock *s)
 	while (tmp)
 	{
 		if (tmp->special == 1)
+		{
+			s->start = tmp;
 			++cpt;
+		}
 		tmp = tmp->next;
 	}
 	if (cpt != 1)
