@@ -13,6 +13,7 @@ SRC_NAME =  main_lemin.c			\
 			ft_verif_error.c		\
 			ft_verif_error_second.c	\
 			ft_test_read.c			\
+			ft_move_ant.c			\
 
 SRC = $(addprefix lemin_functions/, $(SRC_NAME))
 

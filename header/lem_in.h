@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/27 11:43:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 11:57:42 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int						ft_verif_ant_nbr(char **str);
 int						ft_verif_error(char **str);
 int						ft_verif_start_end(t_stock *s);
 int						ft_free_struct(t_stock *s);
+int						ft_move_ant(t_stock *s);
 
 void					ft_test_read(t_stock *s);
 
