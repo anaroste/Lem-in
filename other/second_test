@@ -1,25 +1,25 @@
 19
 ##start
-1 23 3
-2 16 7
+D.trump 23 3
+% 16 7
 #commentaire
-3 16 3
-4 16 5
+qWeRtY 16 3
+&delta; 16 5
 ##end
 hi 9 5
-5 9 3
-6 1 5
-7 4 8
-hi-4
-hi-6
-1-3
-4-3
-5-2
-3-5
+room 42 3
+pac-man 1 5
+anaroste 4 8
+hi-&delta;
+hi-pac-man
+D.trump-qWeRtY
+&delta;-qWeRtY
+room-%
+qWeRtY-room
 #autre commentaire
-4-2
-2-1
-7-6
-7-2
-7-4
-6-5
+&delta;-%
+%-D.trump
+anaroste-pac-man
+anaroste-%
+anaroste-&delta;
+pac-man-room

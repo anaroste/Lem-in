@@ -22,13 +22,25 @@ int			main(int ac, char **av)
 		return (0);
 	}
 	if (!(s = ft_lemin_read(av[1])))
+	{
+		ft_putstr("error read\n");
 		return (0);
+	}
 	if (!ft_verif_start_end(s))
+	{
+		ft_putstr("wrong number of start/end\n");
 		return (0);
-	if (!ft_verif_way(s))
-		return (0);
+	}
 	if (!ft_algorithme(s))
+	{
+		ft_putstr("algorithm\n");
 		return (0);
+	}
+	if (!ft_verif_way(s))
+	{
+		ft_putstr("no way\n");
+		return (0);
+	}
 	if (!ft_move_ant(s))
 	{
 		ft_putstr("ERROR\n");
