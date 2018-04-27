@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/27 10:39:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 11:43:44 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct			s_stock
 	unsigned int		ant_nbr;
 	unsigned int		way;
 	unsigned int		room_quantity;
+	t_room				*start;
+	t_room				*end;
 	t_room				*room;
 }						t_stock;
 
