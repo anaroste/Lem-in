@@ -6,14 +6,14 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:54:05 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/03/21 14:16:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 09:59:11 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 typedef struct		s_list
 {
