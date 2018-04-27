@@ -19,11 +19,18 @@ int			ft_verif_error(char **str)
 	return (0);
 }
 
-int			ft_verif_ant_nbr(char **str)
+int			ft_verif_ant_nbr(int fd, char **str)
 {
 	int		i;
 
 	i = 0;
+	while (**str == '#')
+	{
+		ft_putendl(*str);
+		ft_strdel(str);
+		if (ft_gnl(fd, str) < 1)
+			return (0);
+	}
 	if (!ft_isdigit(**str) && **str != '+')
 		return (ft_verif_error(str));
 	while (ft_isdigit((*str)[i]))

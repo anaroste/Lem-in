@@ -108,7 +108,7 @@ t_stock			*ft_lemin_read(char *file)
 	if (!(s = (t_stock*)malloc(sizeof(t_stock))) ||
 			!(fd = open(file, O_RDONLY)) ||
 			(ft_gnl(fd, &str) < 1) ||
-			!(ft_verif_ant_nbr(&str)))
+			!(ft_verif_ant_nbr(fd, &str)))
 		return (NULL);
 	s->ant_nbr = ft_atoui(str);
 	ft_putendl(str);

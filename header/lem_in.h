@@ -53,7 +53,7 @@ int						ft_lemin_pipe_read(t_stock *s, int fd, char **str);
 int						ft_algorithme(t_stock *s);
 int						ft_verif_pipe(char **str, t_stock *s);
 int						ft_verif_room(char **str);
-int						ft_verif_ant_nbr(char **str);
+int						ft_verif_ant_nbr(int fd, char **str);
 int						ft_verif_error(char **str);
 int						ft_verif_start_end(t_stock *s);
 int						ft_free_struct(t_stock *s);
