@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/27 11:57:42 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/27 15:29:54 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct			s_room
 	int					ant;
 	int					special;
 	int					way;
-	int					way_nbr;
 	int					x;
 	int					y;
 	struct s_room		**liaison;
