@@ -16,28 +16,27 @@
 static int		ft_start_pipe(char *str, t_stock *s)
 {
 	t_room		*tmp;
+	t_room		*tmp2;
 	int		i;
 	int		j;
 
 	tmp = s->room;
 	while (tmp)
 	{
+		tmp2 = s->room;
 		if (!ft_strncmp(str, tmp->name, i = ft_strlen(tmp->name)) &&
 				str[i++] == '-')
-			break ;
-		tmp = tmp->next;
-	}
-	if (!tmp)
-		return (0);
-	tmp = s->room;
-	while (tmp)
-	{
-		if (!ft_strncmp(&str[i], tmp->name, j = ft_strlen(tmp->name)) &&
+			while (tmp2 && (ft_strncmp(&str[i], tmp->name, j = ft_strlen(tmp->name)) || str[i + j]))
+			{
+ft_printf("tmp2->name : %s  &str[i] : %s  i : %d  j :  %d\n", tmp2->name, &str[i], i, j);
+				tmp2 = tmp2->next;
+			}
+		if (tmp2 && !ft_strncmp(&str[i], tmp->name, j) &&
 				!str[i + j])
 			break ;
 		tmp = tmp->next;
 	}
-	if (!tmp || str[i + j])
+	if (!tmp)
 		return (0);
 	return (1);
 }

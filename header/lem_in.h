@@ -51,7 +51,6 @@ typedef struct			s_stock
 t_stock					*ft_lemin_read(char *file);
 int						ft_lemin_pipe_read(t_stock *s, int fd, char **str);
 int						ft_algorithme(t_stock *s);
-int						ft_verif_pipe(char **str, t_stock *s);
 int						ft_verif_room(char **str);
 int						ft_verif_ant_nbr(int fd, char **str);
 int						ft_verif_error(char **str);

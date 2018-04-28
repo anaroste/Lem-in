@@ -12,46 +12,6 @@
 
 #include "../header/lem_in.h"
 
-static int		ft_verif_pipe_second(char **str, t_stock *s, int i)
-{
-	t_room	*tmp;
-	int		j;
-
-	tmp = s->room;
-	while (tmp)
-	{
-		if (!ft_strncmp(&((*str)[i]), tmp->name, j = ft_strlen(tmp->name)) &&
-				!(*str)[i + j])
-			break ;
-		tmp = tmp->next;
-	}
-	if (!tmp)
-		return (ft_verif_error(str));
-	return (1);
-}
-
-int				ft_verif_pipe(char **str, t_stock *s)
-{
-	int		i;
-	t_room	*tmp;
-
-	if (**str == '#')
-		return (1);
-	i = 0;
-	tmp = s->room;
-	while (tmp)
-	{
-		if (!ft_strncmp(*str, tmp->name, i = ft_strlen(tmp->name)) &&
-				(*str)[i] == '-')
-			break ;
-		tmp = tmp->next;
-	}
-	if (!tmp || (*str)[i] != '-')
-		return (ft_verif_error(str));
-	++i;
-	return (ft_verif_pipe_second(str, s, i));
-}
-
 static int		ft_verif_room_second(char **str, int i)
 {
 	while (ft_isdigit((*str)[i]))

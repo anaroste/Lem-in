@@ -50,14 +50,23 @@ int				ft_lemin_pipe_read(t_stock *s, int fd, char **str)
 
 	tmp = s->room;
 	tmp2 = s->room;
-	if (!ft_verif_pipe(str, s))
-		return (1);
 	if (**str != '#')
 	{
-		while (ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) || (*str)[i++] != '-')
+		while (tmp)
+		{
+			tmp2 = s->room;
+			if (!ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) && (*str)[i++] != '-')
+				while (tmp2 && (ft_strncmp(tmp2->name, &((*str)[i]), j = ft_strlen(tmp2->name)) || (*str)[i + j]))
+					tmp2 = tmp2->next;
+			if (tmp2 && !ft_strncmp(tmp2->name, &((*str)[i]), j) && !(*str)[i + j])
+				break;
 			tmp = tmp->next;
-		while (ft_strncmp(tmp2->name, &((*str)[i]), j = ft_strlen(tmp2->name)) || (*str)[i + j])
-			tmp2 = tmp2->next;
+		}
+		if (!tmp)
+		{
+			ft_verif_error(str);
+			return (1);
+		}
 		if (!ft_add_liaison(tmp, tmp2) || !ft_add_liaison(tmp2, tmp))
 			return (0);
 	}
