@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 15:53:52 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/29 08:58:30 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static int		ft_new_room(t_stock *s, char *str)
 	new_room->ant = 0;
 	new_room->special = 0;
 	new_room->way = 0;
+	new_room->lenght = 0;
 	new_room->next = s->room;
 	s->room = new_room;
 	return (1);

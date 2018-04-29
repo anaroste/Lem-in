@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/27 15:29:54 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/29 09:26:45 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct			s_room
 	int					ant;
 	int					special;
 	int					way;
+	int					lenght;
 	int					x;
 	int					y;
 	struct s_room		**liaison;
@@ -61,5 +62,6 @@ int						ft_move_ant(t_stock *s);
 int						ft_verif_way(t_stock *s);
 
 void					ft_test_read(t_stock *s);
+void					ft_take_info(t_stock *s);
 
 #endif

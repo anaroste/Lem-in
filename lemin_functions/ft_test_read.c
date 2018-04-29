@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 14:21:02 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/26 17:47:17 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/29 09:30:41 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void		ft_test_read(t_stock *s)
 		ft_printf("ant     %d\n", room->ant);
 		ft_printf("special %d\n", room->special);
 		ft_printf("way     %d\n", room->way);
+		ft_printf("lenght  %d\n", room->lenght);
 		ft_printf("x       %d\n", room->x);
 		ft_printf("y       %d\n", room->y);
 		i = -1;

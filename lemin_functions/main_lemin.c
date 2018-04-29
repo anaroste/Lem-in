@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:25:10 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 16:06:20 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/29 09:31:29 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int			main(int ac, char **av)
 		ft_putstr("algorithm\n");
 		return (0);
 	}
+	ft_take_info(s);
 	ft_test_read(s);
 	if (!ft_verif_way(s))
 	{
