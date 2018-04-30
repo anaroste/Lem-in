@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/29 08:58:30 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/30 10:02:16 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,29 @@
 static int		ft_start_pipe(char *str, t_stock *s)
 {
 	t_room		*tmp;
-	int		i;
-	int		j;
+	t_room		*tmp2;
+	int			i;
+	int			j;
 
 	tmp = s->room;
-	while (tmp)
+	if (*str != '#')
 	{
-		if (!ft_strncmp(str, tmp->name, i = ft_strlen(tmp->name)) &&
-				str[i++] == '-')
-			break ;
-		tmp = tmp->next;
+		while (tmp)
+		{
+			tmp2 = s->room;
+			j = 0;
+			if (!ft_strncmp(tmp->name, str, i = ft_strlen(tmp->name)) &&
+					str[i++] == '-')
+				while (tmp2 && (ft_strncmp(tmp2->name, &(str[i]),
+								j = ft_strlen(tmp2->name)) || str[i + j]))
+					tmp2 = tmp2->next;
+			if (tmp2 && j && !ft_strncmp(tmp2->name, &(str)[i],
+						j = ft_strlen(tmp2->name)) && !str[i + j])
+				return (1);
+			tmp = tmp->next;
+		}
 	}
-	if (!tmp)
-		return (0);
-	tmp = s->room;
-	while (tmp)
-	{
-		if (!ft_strncmp(&str[i], tmp->name, j = ft_strlen(tmp->name)) &&
-				!str[i + j])
-			break ;
-		tmp = tmp->next;
-	}
-	if (!tmp || str[i + j])
-		return (0);
-	return (1);
+	return (0);
 }
 
 static int		ft_new_room(t_stock *s, char *str)

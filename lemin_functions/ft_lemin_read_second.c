@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 16:06:36 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/04/30 10:19:10 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,21 @@ static int		ft_add_liaison(t_room *room, t_room *tie_to)
 	return (1);
 }
 
+static int		ft_fuck_the_norm(char **str, t_room *tmp, t_room *tmp2)
+{
+	if (!tmp)
+		return (ft_verif_error(str));
+	if (!ft_add_liaison(tmp, tmp2) || !ft_add_liaison(tmp2, tmp))
+		return (0);
+	return (1);
+}
+
 static int		ft_lemin_pipe_read_two(t_stock *s, int fd, char **str)
 {
 	int		ret;
 
+	ft_putendl(*str);
+	ft_strdel(str);
 	if ((ret = ft_gnl(fd, str)) == 0)
 		return (1);
 	if (ret == -1)
@@ -49,19 +60,23 @@ int				ft_lemin_pipe_read(t_stock *s, int fd, char **str)
 	int			j;
 
 	tmp = s->room;
-	tmp2 = s->room;
-	if (!ft_verif_pipe(str, s))
-		return (1);
-	if (**str != '#')
+	if (**str == '#')
+		return (ft_lemin_pipe_read_two(s, fd, str));
+	while (tmp)
 	{
-		while (ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name)) || (*str)[i++] != '-')
-			tmp = tmp->next;
-		while (ft_strncmp(tmp2->name, &((*str)[i]), j = ft_strlen(tmp2->name)) || (*str)[i + j])
-			tmp2 = tmp2->next;
-		if (!ft_add_liaison(tmp, tmp2) || !ft_add_liaison(tmp2, tmp))
-			return (0);
+		tmp2 = s->room;
+		j = 0;
+		if (!ft_strncmp(tmp->name, *str, i = ft_strlen(tmp->name))
+				&& (*str)[i++] == '-')
+			while (tmp2 && (ft_strncmp(tmp2->name, &((*str)[i]),
+							j = ft_strlen(tmp2->name)) || (*str)[i + j]))
+				tmp2 = tmp2->next;
+		if (tmp2 && j && !ft_strncmp(tmp2->name, &((*str)[i]),
+					j = ft_strlen(tmp2->name) && !(*str)[i + j]))
+			break ;
+		tmp = tmp->next;
 	}
-	ft_putendl(*str);
-	ft_strdel(str);
+	if (!ft_fuck_the_norm(str, tmp, tmp2))
+		return (0);
 	return (ft_lemin_pipe_read_two(s, fd, str));
 }
