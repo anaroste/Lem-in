@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/29 09:26:45 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/01 13:55:00 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ typedef struct			s_stock
 **			FONCTIONS
 */
 
-t_stock					*ft_lemin_read(char *file);
+t_stock					*ft_lemin_read(void);
 int						ft_lemin_pipe_read(t_stock *s, int fd, char **str);
 int						ft_algorithme(t_stock *s);
 int						ft_verif_pipe(char **str, t_stock *s);
 int						ft_verif_room(char **str);
 int						ft_verif_ant_nbr(int fd, char **str);
 int						ft_verif_error(char **str);
-int						ft_verif_start_end(t_stock *s);
+int						ft_last_verif(t_stock *s);
 int						ft_free_struct(t_stock *s);
 int						ft_move_ant(t_stock *s);
 int						ft_verif_way(t_stock *s);

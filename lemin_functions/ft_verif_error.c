@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:22:57 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/27 16:06:25 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/01 13:45:54 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,26 @@ int			ft_verif_ant_nbr(int fd, char **str)
 	return (1);
 }
 
+static int	ft_verif_double_name(t_stock *s)
+{
+	t_room	*tmp;
+	t_room	*tmp2;
+
+	tmp = s->room;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (!ft_strcmp(tmp->name, tmp2->name))
+				return (0);
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 static int	ft_verif_end(t_stock *s)
 {
 	int		cpt;
@@ -58,10 +78,10 @@ static int	ft_verif_end(t_stock *s)
 	}
 	if (cpt != 1)
 		return (0);
-	return (1);
+	return (ft_verif_double_name(s));
 }
 
-int			ft_verif_start_end(t_stock *s)
+int			ft_last_verif(t_stock *s)
 {
 	t_room		*tmp;
 	int			cpt;

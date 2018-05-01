@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/30 10:02:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/01 13:56:01 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,11 @@ static int		ft_lemin_room_read(t_stock *s, int fd)
 	return (ft_lemin_room_read(s, fd));
 }
 
-t_stock			*ft_lemin_read(char *file)
+/*
+**!(fd = open(file, O_RDONLY)) ||
+*/
+
+t_stock			*ft_lemin_read(void)
 {
 	t_stock		*s;
 	t_room		*tmp;
@@ -120,8 +124,8 @@ t_stock			*ft_lemin_read(char *file)
 	int			fd;
 	int			i;
 
+	fd = 0;
 	if (!(s = (t_stock*)malloc(sizeof(t_stock))) ||
-			!(fd = open(file, O_RDONLY)) ||
 			(ft_gnl(fd, &str) < 1) ||
 			!(ft_verif_ant_nbr(fd, &str)))
 		return (NULL);
@@ -129,7 +133,7 @@ t_stock			*ft_lemin_read(char *file)
 	ft_putendl(str);
 	ft_strdel(&str);
 	s->room = NULL;
-	if (!ft_lemin_room_read(s, fd) || (close(fd) == -1))
+	if (!ft_lemin_room_read(s, fd))
 		return (NULL);
 	tmp = s->room;
 	i = 0;
