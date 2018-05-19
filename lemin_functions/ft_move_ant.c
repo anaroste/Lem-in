@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/19 18:34:26 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/19 19:01:04 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ static void		push_ant(t_stock *s)
 	}
 }
 
+static void		mdrr(t_stock *s)
+{
+		ft_printf("\n");
+		push_ant(s);
+}
+
 int				ft_move_ant(t_stock *s)
 {
 	int		way;
@@ -63,8 +69,7 @@ int				ft_move_ant(t_stock *s)
 	way = how_much_way(s) + 1;
 	while (s->end->ant != s->ant_nbr)
 	{
-		ft_printf("\n");
-		push_ant(s);
+		mdrr(s);
 		if (s->start->ant > 0)
 		{
 			while (s->start->ant < (unsigned int)s->tab[way])
@@ -81,6 +86,5 @@ int				ft_move_ant(t_stock *s)
 			}
 		}
 	}
-	ft_putstr("\n");
 	return (1);
 }
