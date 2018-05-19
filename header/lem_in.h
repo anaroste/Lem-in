@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/01 13:55:00 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/19 17:45:09 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct			s_room
 {
 	char				*name;
 	int					id;
-	int					ant;
+	unsigned int		ant;
+	unsigned int		ant_name;
 	int					special;
 	int					way;
 	int					lenght;
@@ -40,6 +41,7 @@ typedef struct			s_stock
 	unsigned int		ant_nbr;
 	unsigned int		way;
 	unsigned int		room_quantity;
+	int					*tab;
 	t_room				*start;
 	t_room				*end;
 	t_room				*room;
@@ -60,8 +62,9 @@ int						ft_last_verif(t_stock *s);
 int						ft_free_struct(t_stock *s);
 int						ft_move_ant(t_stock *s);
 int						ft_verif_way(t_stock *s);
-
 void					ft_test_read(t_stock *s);
-void					ft_take_info(t_stock *s);
+int						ft_take_info(t_stock *s);
+int						how_much_way(t_stock *s);
+t_room					*findnext(t_room *room);
 
 #endif

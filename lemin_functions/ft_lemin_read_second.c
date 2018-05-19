@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/19 17:25:45 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/19 18:37:28 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ static int		ft_lemin_pipe_read_two(t_stock *s, int fd, char **str)
 {
 	int		ret;
 
-	ft_putstr(*str);
+	ft_putendl(*str);
 	ft_strdel(str);
 	if ((ret = ft_gnl(fd, str)) == 0)
 		return (1);
 	if (ret == -1)
 		return (0);
-	ft_putchar('\n');
 	return (ft_lemin_pipe_read(s, fd, str));
 }
 

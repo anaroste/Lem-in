@@ -17,6 +17,7 @@ SRC_NAME =  main_lemin.c			\
 			ft_move_ant.c			\
 			ft_algorithme.c			\
 			ft_take_info.c			\
+			ft_move_tools.c			\
 
 SRC = $(addprefix lemin_functions/, $(SRC_NAME))
 

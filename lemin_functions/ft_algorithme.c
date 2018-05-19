@@ -6,19 +6,19 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:22:23 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/29 09:38:07 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/19 15:57:56 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/lem_in.h"
 
-int		balisage(t_stock *s, t_room *r)
+static int		balisage(t_stock *s, t_room *r)
 {
 	r->way = s->way;
 	return (1);
 }
 
-int		ft_recursive(t_stock *s, t_room *r, int cmp)
+static int		ft_recursive(t_stock *s, t_room *r, int cmp)
 {
 	int		i;
 
@@ -38,9 +38,7 @@ int		ft_recursive(t_stock *s, t_room *r, int cmp)
 	return (0);
 }
 
-
-
-int		ft_algorithme(t_stock *s)
+int				ft_algorithme(t_stock *s)
 {
 	unsigned int		cmp;
 	int					error;

@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/29 08:51:49 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/29 09:52:49 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/19 15:56:10 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,26 @@ static void		second(t_stock *s, int i, int j)
 	}
 }
 
-void			ft_take_info(t_stock *s)
+static int		fill_tab(t_stock *s)
+{
+	int		i;
+
+	i = -1;
+	if (!(s->tab = (int *)malloc(sizeof(int) * (s->way + 1))))
+		return (0);
+	s->tab[0] = s->way - 1;
+	while (s->start->liaison[++i] != NULL)
+	{
+		if (s->start->liaison[i]->way != 0)
+			s->tab[s->start->liaison[i]->way] = s->start->liaison[i]->lenght;
+	}
+	return (1);
+}
+
+int				ft_take_info(t_stock *s)
 {
 	second(s, -1, -1);
+	if (!fill_tab(s))
+		return (0);
+	return (1);
 }
