@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:22:57 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/01 13:45:54 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/19 16:21:48 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int			ft_verif_error(char **str)
 {
-	ft_printf("%s\nerror in the previous line : stop reading\n", *str);
 	ft_strdel(str);
 	return (0);
 }
@@ -32,11 +31,17 @@ int			ft_verif_ant_nbr(int fd, char **str)
 			return (0);
 	}
 	if (!ft_isdigit(**str) && **str != '+')
+	{
+		ft_putendl(*str);
 		return (ft_verif_error(str));
+	}
 	while (ft_isdigit((*str)[i]))
 		++i;
 	if ((*str)[i] || ft_atoll(*str) > 4294967295)
+	{
+		ft_putendl(*str);
 		return (ft_verif_error(str));
+	}
 	return (1);
 }
 
