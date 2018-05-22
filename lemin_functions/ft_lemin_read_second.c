@@ -21,6 +21,7 @@ static int		ft_add_liaison(t_room *room, t_room *tie_to)
 	while (room->liaison[i - 1])
 		++i;
 	tmp = room->liaison;
+	free(room->liaison);
 	if (!(room->liaison = (t_room**)malloc(sizeof(t_room*) * (i + 1))))
 		return (0);
 	room->liaison[i] = NULL;

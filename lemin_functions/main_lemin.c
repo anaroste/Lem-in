@@ -33,6 +33,5 @@ int			main(int ac, char **av)
 	}
 	write(1, "\n", 1);
 	ft_free_struct(s);
-	while(1);
 	return (0);
 }
