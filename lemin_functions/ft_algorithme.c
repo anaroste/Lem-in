@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:22:23 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/19 15:57:56 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/23 14:26:35 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int		ft_recursive(t_stock *s, t_room *r, int cmp)
 
 int				ft_algorithme(t_stock *s)
 {
-	unsigned int		cmp;
+	int					cmp;
 	int					error;
 
 	error = 0;

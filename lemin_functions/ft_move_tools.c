@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 16:09:06 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/19 16:10:42 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/23 14:27:44 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int			how_much_way(t_stock *s)
 {
-	unsigned int	place;
-	unsigned int	way;
-	int				i;
+	int		place;
+	int		way;
+	int		i;
 
 	place = 0;
 	i = 0;

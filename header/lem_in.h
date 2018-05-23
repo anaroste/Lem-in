@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:10:33 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/19 17:45:09 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/23 14:28:47 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct			s_room
 {
 	char				*name;
 	int					id;
-	unsigned int		ant;
-	unsigned int		ant_name;
+	int					ant;
+	int					ant_name;
 	int					special;
 	int					way;
 	int					lenght;
@@ -38,9 +38,9 @@ typedef struct			s_room
 
 typedef struct			s_stock
 {
-	unsigned int		ant_nbr;
-	unsigned int		way;
-	unsigned int		room_quantity;
+	int					ant_nbr;
+	int					way;
+	int					room_quantity;
 	int					*tab;
 	t_room				*start;
 	t_room				*end;

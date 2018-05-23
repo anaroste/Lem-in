@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:22:57 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/19 16:21:48 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/05/23 14:33:28 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_verif_ant_nbr(int fd, char **str)
 	}
 	while (ft_isdigit((*str)[i]))
 		++i;
-	if ((*str)[i] || ft_atoll(*str) > 4294967295)
+	if ((*str)[i] || ft_atoll(*str) > 2147483647)
 	{
 		ft_putendl(*str);
 		return (ft_verif_error(str));

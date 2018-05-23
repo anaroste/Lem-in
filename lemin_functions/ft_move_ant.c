@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/19 19:01:04 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/23 14:26:08 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				ft_move_ant(t_stock *s)
 		mdrr(s);
 		if (s->start->ant > 0)
 		{
-			while (s->start->ant < (unsigned int)s->tab[way])
+			while (s->start->ant < s->tab[way])
 				way--;
 			if (way < 1)
 				way = 1;
