@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/23 15:05:27 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/06/18 13:02:47 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ static int		ft_add_liaison(t_room *room, t_room *tie_to)
 
 	i = 1;
 	while (room->liaison[i - 1])
+	{
+		if (room->liaison[i - 1] == tie_to)
+			return (1);
 		++i;
+	}
 	tmp = room->liaison;
 	if (!(room->liaison = (t_room**)malloc(sizeof(t_room*) * (i + 1))))
 		return (0);

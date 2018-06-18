@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/23 14:26:08 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/06/18 13:03:59 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 static void		move_ant(t_room *start, t_room *end, char *name, int c)
 {
-	end->ant += 1;
-	if (c)
-		end->ant_name = start->ant_name;
-	else
-		end->ant_name = start->ant;
-	ft_printf("L%u-%s ", end->ant_name, name);
-	start->ant -= 1;
-	if (c)
-		start->ant_name = 0;
+	if (start->ant > 0)
+	{
+		end->ant += 1;
+		if (c)
+			end->ant_name = start->ant_name;
+		else
+			end->ant_name = start->ant;
+		ft_printf("L%u-%s ", end->ant_name, name);
+		start->ant -= 1;
+		if (c)
+			start->ant_name = 0;
+	}
 }
 
 static void		push_ant(t_stock *s)
@@ -56,8 +59,8 @@ static void		push_ant(t_stock *s)
 
 static void		mdrr(t_stock *s)
 {
-		ft_printf("\n");
-		push_ant(s);
+	ft_printf("\n");
+	push_ant(s);
 }
 
 int				ft_move_ant(t_stock *s)

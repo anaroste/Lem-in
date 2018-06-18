@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/05/23 14:38:43 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/06/18 12:46:43 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,7 @@ t_stock			*ft_lemin_read(void)
 	ft_putendl(str);
 	ft_strdel(&str);
 	s->room = NULL;
-	if (!ft_lemin_room_read(s, fd))
-		return (NULL);
+	ft_lemin_room_read(s, fd);
 	tmp = s->room;
 	i = 0;
 	while (tmp)
