@@ -76,10 +76,16 @@ static int		ft_special_room(t_stock *s, int fd, char **str)
 	start = 2;
 	if ((*str)[2] == 's')
 		start = 1;
-	ft_putendl(*str);
-	ft_strdel(str);
-	if (ft_gnl(fd, str) < 1 || !ft_new_room(s, *str) || !ft_verif_room(str))
+	while (**str == '#')
+	{
+		ft_putendl(*str);
+		ft_strdel(str);
+			if (ft_gnl(fd, str) < 1)
+				return (0);
+	}
+	if (!ft_new_room(s, *str) || !ft_verif_room(str))
 		return (0);
+	
 	s->room->special = start;
 	return (1);
 }

@@ -30,11 +30,13 @@ int			ft_verif_ant_nbr(int fd, char **str)
 		if (ft_gnl(fd, str) < 1)
 			return (0);
 	}
-	if (!ft_isdigit(**str) && **str != '+')
+	if (!ft_isdigit(**str) && **str != '+' && ft_strcmp(*str, "-0"))
 	{
 		ft_putendl(*str);
 		return (ft_verif_error(str));
 	}
+	if (**str == '+' || !ft_strcmp(*str, "-0"))
+		++i;
 	while (ft_isdigit((*str)[i]))
 		++i;
 	if ((*str)[i] || ft_atoll(*str) > 2147483647)
