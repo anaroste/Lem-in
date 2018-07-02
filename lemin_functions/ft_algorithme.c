@@ -12,29 +12,21 @@
 
 #include "../header/lem_in.h"
 
-static int		balisage(t_stock *s, t_room *r)
-{
-	r->way = s->way;
-	return (1);
-}
-
 static int		ft_recursive(t_stock *s, t_room *r, int cmp)
 {
 	int		i;
 
-	i = 0;
-	if (r->way != 0)
-		return (0);
-	if (!cmp)
+	if (r->way || !cmp)
 		return (0);
 	if (r->special == 2)
-		return (balisage(s, r));
-	while (r->liaison[i])
-	{
+		return (1);
+	i = -1;
+	while (r->liaison[++i])
 		if (ft_recursive(s, r->liaison[i], cmp - 1))
-			return (balisage(s, r));
-		i++;
-	}
+		{
+			r->way = s->way;
+			return (1);
+		}
 	return (0);
 }
 
@@ -49,10 +41,11 @@ int				ft_algorithme(t_stock *s)
 	s->way = 1;
 	while (cmp <= s->room_quantity)
 	{
+		if (s->ant_nbr < s->way)
+			return (1);
 		if (ft_recursive(s, s->start, cmp))
 			s->way += 1;
 		s->start->way = 0;
-		s->end->way = 0;
 		cmp++;
 	}
 	return (1);
