@@ -12,6 +12,21 @@
 
 #include "../header/lem_in.h"
 
+static int		ft_room_quantity(t_stock *s)
+{
+	t_room		*tmp;
+	int		cpt;
+
+	tmp = s->room;
+	cpt = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		cpt++;
+	}
+	return (cpt);
+}
+
 static int		ft_recursive(t_stock *s, t_room *r, int cmp)
 {
 	int		i;
@@ -33,11 +48,9 @@ static int		ft_recursive(t_stock *s, t_room *r, int cmp)
 int				ft_algorithme(t_stock *s)
 {
 	int					cmp;
-	int					error;
 
-	error = 0;
 	cmp = 1;
-	s->room_quantity = 8;
+	s->room_quantity = ft_room_quantity(s);
 	s->way = 1;
 	while (cmp <= s->room_quantity)
 	{
