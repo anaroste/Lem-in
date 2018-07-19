@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/29 08:51:49 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/19 15:56:10 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/07/19 11:39:44 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void		second(t_stock *s, int i, int j)
 				{
 					tmp = tmp->liaison[j];
 					tmp->lenght = lenght++;
+					j = -1;
 				}
 				else if (tmp->liaison[j]->special == 1)
 					break ;
