@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/06/18 13:03:59 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/07/19 16:24:03 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		push_ant(t_stock *s)
 		if (s->start->liaison[i]->way != 0)
 		{
 			tmp = s->start->liaison[i];
-			while (tmp->ant != 1 && tmp->special != 2)
+			while (tmp->ant != 1 && findnext(tmp)->special != 2)
 				tmp = findnext(tmp);
 			if (tmp->ant == 1)
 			{
