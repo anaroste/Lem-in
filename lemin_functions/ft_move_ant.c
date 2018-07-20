@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/07/20 13:02:12 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/07/20 13:17:26 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void		ft_move_ant_second(t_stock *s, int way)
 {
 	int		i;
 
-	ft_printf("1\n");
+	ft_printf("\n");
 	push_ant(s);
 	way--;
 	if (way < 1)
