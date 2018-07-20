@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 16:09:06 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/23 14:27:44 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/07/20 16:42:07 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_room		*findnext(t_room *room)
 	if (!room->liaison[i])
 	{
 		i = 0;
-		while ((room->liaison[i]->way != room->way) &&
+		while ((room->liaison[i]->way != room->way) ||
 				(room->liaison[i]->lenght != (room->lenght - 1)))
 			i++;
 	}

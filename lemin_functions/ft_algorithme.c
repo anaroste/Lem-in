@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 11:22:23 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/23 14:26:35 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/07/20 16:44:01 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int		ft_room_quantity(t_stock *s)
 {
 	t_room		*tmp;
-	int		cpt;
+	int			cpt;
 
 	tmp = s->room;
 	cpt = 0;
