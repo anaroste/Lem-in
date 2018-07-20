@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 13:06:44 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/07/19 16:24:03 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/07/20 13:02:12 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,23 @@ static void		push_ant(t_stock *s)
 	}
 }
 
-static void		mdrr(t_stock *s)
+static void		ft_move_ant_second(t_stock *s, int way)
 {
-	ft_printf("\n");
+	int		i;
+
+	ft_printf("1\n");
 	push_ant(s);
+	way--;
+	if (way < 1)
+		way = 1;
+	i = -1;
+	while (s->start->liaison[++i])
+	{
+		if (s->start->liaison[i]->way <= way &&
+				s->start->liaison[i]->way != 0)
+			move_ant(s->start, s->start->liaison[i],
+					s->start->liaison[i]->name, 0);
+	}
 }
 
 int				ft_move_ant(t_stock *s)
@@ -68,26 +81,16 @@ int				ft_move_ant(t_stock *s)
 	int		way;
 	int		i;
 
+	i = -1;
+	while (s->start->liaison[++i])
+		if (s->start->liaison[i]->special == 2)
+		{
+			while (s->ant_nbr > 0)
+				ft_printf("L%i-%s ", s->ant_nbr--, s->end->name);
+		}
 	s->start->ant = (int)s->ant_nbr;
 	way = how_much_way(s) + 1;
 	while (s->end->ant != s->ant_nbr)
-	{
-		mdrr(s);
-		if (s->start->ant > 0)
-		{
-			while (s->start->ant < s->tab[way])
-				way--;
-			if (way < 1)
-				way = 1;
-			i = -1;
-			while (s->start->liaison[++i])
-			{
-				if (s->start->liaison[i]->way <= way &&
-						s->start->liaison[i]->way != 0)
-					move_ant(s->start, s->start->liaison[i],
-							s->start->liaison[i]->name, 0);
-			}
-		}
-	}
+		ft_move_ant_second(s, way);
 	return (1);
 }
