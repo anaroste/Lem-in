@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 10:37:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/04/30 09:27:11 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/07/24 11:53:51 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int				ft_verif_room(char **str)
 	if (**str == 'L' || !((*str)[i]))
 		return (ft_verif_error(str));
 	++i;
+	if ((*str)[i] == ' ')
+		return (ft_verif_error(str));
 	if ((*str)[i] == '-' || (*str)[i] == '+')
 		++i;
 	if (!ft_verif_room_second(str, i))

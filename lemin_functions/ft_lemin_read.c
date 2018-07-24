@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 15:28:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/07/20 16:43:08 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/07/24 11:50:19 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,8 @@ static int		ft_special_room(t_stock *s, int fd, char **str)
 static int		ft_lemin_room_read(t_stock *s, int fd)
 {
 	char		*str;
-	int			ret;
 
-	if (!(ret = ft_gnl(fd, &str)))
-	{
-		ft_putendl(str);
-		ft_strdel(&str);
-		return (1);
-	}
-	if (ret == -1)
+	if (ft_gnl(fd, &str) < 1)
 		return (0);
 	if (ft_start_pipe(str, s))
 		return (ft_lemin_pipe_read(s, fd, &str));
